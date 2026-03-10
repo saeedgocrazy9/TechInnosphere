@@ -1,4 +1,4 @@
-import { TrendingUp, Database, Code2, Brain, Bus, Landmark, GraduationCap, Rocket, Star, Award } from "lucide-react";
+import { TrendingUp, Database, Code2, Brain, Bus, Landmark, GraduationCap, Rocket, Star, Award, Building, BarChart3, Globe, Flag } from "lucide-react";
 
 export default function IITProjects() {
 
@@ -10,471 +10,185 @@ export default function IITProjects() {
   ];
 
   const aarohanFeatures = [
-    { icon: <Bus size={22} color="#60A5FA" strokeWidth={1.8} />, title: "Smart Transport & Traffic Systems", desc: "Intelligent transportation and traffic management solutions" },
-    { icon: <Landmark size={22} color="#60A5FA" strokeWidth={1.8} />, title: "Digital Governance Platforms", desc: "Digital and inclusive governance technologies" },
-    { icon: <GraduationCap size={22} color="#60A5FA" strokeWidth={1.8} />, title: "Next-Gen Education & Skilling", desc: "Future-ready education and skill development prototypes" },
+    { icon: <Bus size={22} color="#FCD34D" strokeWidth={1.8} />, title: "Smart Transport & Traffic Systems", desc: "Intelligent transportation and traffic management solutions" },
+    { icon: <Landmark size={22} color="#FCD34D" strokeWidth={1.8} />, title: "Digital Governance Platforms", desc: "Digital and inclusive governance technologies" },
+    { icon: <GraduationCap size={22} color="#FCD34D" strokeWidth={1.8} />, title: "Next-Gen Education & Skilling", desc: "Future-ready education and skill development prototypes" },
   ];
 
   return (
-    <section id="iit-projects" style={{
-      background: "#020610",
-      padding: "120px 4%",
-      position: "relative",
-      overflow: "hidden",
-      fontFamily: "'Segoe UI', sans-serif",
-    }}>
+    <section id="iit-projects" style={{ background: "#020610", padding: "120px 4%", position: "relative", overflow: "hidden", fontFamily: "'Segoe UI', sans-serif" }}>
       <style>{`
-        @keyframes fadeSlideUp {
-          from { opacity: 0; transform: translateY(40px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes glowPulse {
-          0%, 100% { opacity: 0.5; } 50% { opacity: 1; }
-        }
-        @keyframes floatUp {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-8px); }
-        }
-        @keyframes rotateSlow {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        @keyframes shimmer {
-          0% { background-position: -200% center; }
-          100% { background-position: 200% center; }
-        }
-
-        .project-card {
-          background: rgba(255,255,255,0.02);
-          border: 1px solid rgba(59,130,246,0.12);
-          border-radius: 24px;
-          padding: 48px;
-          position: relative;
-          overflow: hidden;
-          transition: all 0.25s ease;
-        }
-        .project-card:hover {
-          border-color: rgba(59,130,246,0.35);
-          transform: translateY(-6px);
-          box-shadow: 0 28px 70px rgba(29,78,216,0.15);
-        }
-        .project-card::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0; right: 0;
-          height: 2px;
-          background: linear-gradient(90deg, #1D4ED8, #3B82F6, #60A5FA, transparent);
-          opacity: 0;
-          transition: opacity 0.25s ease;
-        }
+        @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes glowPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+        @keyframes floatUp { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+        .project-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(59,130,246,0.12); border-radius: 24px; padding: 48px; position: relative; overflow: hidden; transition: all 0.25s ease; }
+        .project-card:hover { border-color: rgba(59,130,246,0.35); transform: translateY(-6px); box-shadow: 0 28px 70px rgba(29,78,216,0.15); }
+        .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #1D4ED8, #3B82F6, #60A5FA, transparent); opacity: 0; transition: opacity 0.25s ease; }
         .project-card:hover::before { opacity: 1; }
-
-        .feature-item {
-          display: flex;
-          align-items: flex-start;
-          gap: 18px;
-          padding: 20px 24px;
-          background: rgba(255,255,255,0.02);
-          border: 1px solid rgba(59,130,246,0.1);
-          border-radius: 14px;
-          transition: all 0.2s ease;
-          cursor: default;
-        }
-        .feature-item:hover {
-          background: rgba(59,130,246,0.07);
-          border-color: rgba(59,130,246,0.3);
-          transform: translateX(6px);
-        }
-
-        .iit-badge {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          padding: 8px 18px;
-          background: rgba(251,191,36,0.08);
-          border: 1px solid rgba(251,191,36,0.25);
-          border-radius: 50px;
-          font-size: 12px;
-          font-weight: 700;
-          color: #FCD34D;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-        }
-
-        @media (max-width: 1024px) {
-          .projects-grid { flex-direction: column !important; }
-        }
-        @media (max-width: 768px) {
-          .project-card { padding: 28px !important; }
-          .features-grid { grid-template-columns: 1fr !important; }
-        }
+        .feature-item { display: flex; align-items: flex-start; gap: 18px; padding: 20px 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(59,130,246,0.1); border-radius: 14px; transition: all 0.2s ease; cursor: default; }
+        .feature-item:hover { background: rgba(59,130,246,0.07); border-color: rgba(59,130,246,0.3); transform: translateX(6px); }
+        .iit-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 18px; background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.25); border-radius: 50px; font-size: 12px; font-weight: 700; color: #FCD34D; letter-spacing: 0.1em; text-transform: uppercase; }
+        @media (max-width: 1024px) { .projects-grid { flex-direction: column !important; } }
+        @media (max-width: 768px) { .project-card { padding: 28px !important; } .features-grid { grid-template-columns: 1fr !important; } }
       `}</style>
 
-      {/* BG GRID */}
-      <div style={{
-        position: "absolute", inset: 0,
-        backgroundImage: `
-          linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px)
-        `,
-        backgroundSize: "52px 52px", pointerEvents: "none",
-      }} />
-
-      {/* GLOW */}
-      <div style={{
-        position: "absolute", top: "10%", left: "50%",
-        transform: "translateX(-50%)",
-        width: "70vw", height: "50vh",
-        background: "radial-gradient(ellipse, rgba(29,78,216,0.1) 0%, transparent 70%)",
-        pointerEvents: "none",
-      }} />
+      <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px)`, backgroundSize: "52px 52px", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", top: "10%", left: "50%", transform: "translateX(-50%)", width: "70vw", height: "50vh", background: "radial-gradient(ellipse, rgba(29,78,216,0.1) 0%, transparent 70%)", pointerEvents: "none" }} />
 
       <div style={{ maxWidth: 1600, margin: "0 auto", position: "relative", zIndex: 1 }}>
 
-        {/* ── HEADER ── */}
+        {/* HEADER */}
         <div style={{ textAlign: "center", marginBottom: 80, animation: "fadeSlideUp 0.7s ease both" }}>
-          <div style={{
-            display: "inline-flex", alignItems: "center", gap: 10,
-            background: "rgba(29,78,216,0.1)",
-            border: "1px solid rgba(59,130,246,0.25)",
-            borderRadius: 50, padding: "10px 24px", marginBottom: 28,
-          }}>
-            <div style={{
-              width: 8, height: 8, borderRadius: "50%",
-              background: "#3B82F6", boxShadow: "0 0 8px #3B82F6",
-              animation: "glowPulse 2s ease-in-out infinite",
-            }} />
-            <span style={{
-              fontSize: 12, color: "#93C5FD",
-              fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase",
-            }}>IIT Bombay Techfest</span>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "rgba(29,78,216,0.1)", border: "1px solid rgba(59,130,246,0.25)", borderRadius: 50, padding: "10px 24px", marginBottom: 28 }}>
+            <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#3B82F6", boxShadow: "0 0 8px #3B82F6", animation: "glowPulse 2s ease-in-out infinite" }} />
+            <span style={{ fontSize: 12, color: "#93C5FD", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase" }}>IIT Bombay Techfest</span>
           </div>
-
-          <h2 style={{
-            fontSize: "clamp(36px, 4.5vw, 64px)",
-            fontWeight: 900, color: "#FFFFFF",
-            letterSpacing: "-0.03em", lineHeight: 1.05, marginBottom: 24,
-          }}>
+          <h2 style={{ fontSize: "clamp(36px, 4.5vw, 64px)", fontWeight: 900, color: "#FFFFFF", letterSpacing: "-0.03em", lineHeight: 1.05, marginBottom: 24 }}>
             Innovation at{" "}
-            <span style={{
-              background: "linear-gradient(90deg, #3B82F6, #60A5FA, #93C5FD)",
-              WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-            }}>IIT Bombay</span>
+            <span style={{ background: "linear-gradient(90deg, #3B82F6, #60A5FA, #93C5FD)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>IIT Bombay</span>
           </h2>
-
-          <div style={{
-            width: 72, height: 4, borderRadius: 4,
-            background: "linear-gradient(90deg, #1D4ED8, #60A5FA)",
-            margin: "0 auto 24px",
-          }} />
-
-          <p style={{
-            color: "#CBD5E1", fontSize: 18,
-            lineHeight: 1.8, maxWidth: 680, margin: "0 auto",
-          }}>
+          <div style={{ width: 72, height: 4, borderRadius: 4, background: "linear-gradient(90deg, #1D4ED8, #60A5FA)", margin: "0 auto 24px" }} />
+          <p style={{ color: "#CBD5E1", fontSize: 18, lineHeight: 1.85, maxWidth: 680, margin: "0 auto", fontWeight: 500 }}>
             TechInnosphere's credibility is anchored in our founders' participation in{" "}
-            <span style={{ color: "#60A5FA", fontWeight: 600 }}>Techfest IIT Bombay</span>
-            , one of Asia's biggest technology platforms.
+            <span style={{ color: "#60A5FA", fontWeight: 700 }}>Techfest IIT Bombay</span>, one of Asia's biggest technology platforms.
           </p>
         </div>
 
-        {/* ── IIT BOMBAY BANNER ── */}
-        <div style={{
-          marginBottom: 60,
-          padding: "32px 44px",
-          background: "linear-gradient(135deg, rgba(251,191,36,0.06), rgba(29,78,216,0.1))",
-          border: "1px solid rgba(251,191,36,0.2)",
-          borderRadius: 20,
-          display: "flex", alignItems: "center",
-          gap: 24, flexWrap: "wrap",
-          position: "relative", overflow: "hidden",
-        }}>
-          <div style={{
-            position: "absolute", right: -40, top: -40,
-            width: 220, height: 220, borderRadius: "50%",
-            background: "radial-gradient(circle, rgba(251,191,36,0.06) 0%, transparent 70%)",
-            pointerEvents: "none",
-          }} />
-
-          <div style={{
-            width: 72, height: 72, borderRadius: 18,
-            background: "linear-gradient(145deg, #92400E, #F59E0B)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            flexShrink: 0, boxShadow: "0 0 28px rgba(251,191,36,0.3)",
-            animation: "floatUp 4s ease-in-out infinite",
-            fontSize: 32,
-          }}>🏛️</div>
-
+        {/* IIT BOMBAY BANNER */}
+        <div style={{ marginBottom: 60, padding: "32px 44px", background: "linear-gradient(135deg, rgba(251,191,36,0.05), rgba(29,78,216,0.08))", border: "1px solid rgba(251,191,36,0.18)", borderRadius: 20, display: "flex", alignItems: "center", gap: 28, flexWrap: "wrap", position: "relative", overflow: "hidden" }}>
+          <div style={{ position: "absolute", right: -40, top: -40, width: 220, height: 220, borderRadius: "50%", background: "radial-gradient(circle, rgba(251,191,36,0.05) 0%, transparent 70%)", pointerEvents: "none" }} />
+          <div style={{ width: 72, height: 72, borderRadius: 18, background: "linear-gradient(145deg, #92400E, #B45309)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, boxShadow: "0 0 28px rgba(251,191,36,0.25)", animation: "floatUp 4s ease-in-out infinite" }}>
+            <Building size={32} color="#FCD34D" strokeWidth={1.6} />
+          </div>
           <div style={{ flex: 1 }}>
-            <div style={{
-              fontSize: 28, fontWeight: 900, color: "#FFFFFF",
-              letterSpacing: "-0.03em", marginBottom: 6,
-            }}>
-              Techfest IIT Bombay
-            </div>
-            <div style={{ color: "#CBD5E1", fontSize: 16, lineHeight: 1.7 }}>
+            <div style={{ fontSize: 28, fontWeight: 900, color: "#FFFFFF", letterSpacing: "-0.03em", marginBottom: 6 }}>Techfest IIT Bombay</div>
+            {/* FIXED: was #CBD5E1, bumped fontWeight to 500 */}
+            <div style={{ color: "#CBD5E1", fontSize: 16, lineHeight: 1.7, fontWeight: 500 }}>
               Asia's largest science & technology festival —{" "}
-              <span style={{ color: "#FCD34D", fontWeight: 600 }}>
-                our founders compete at the highest level
-              </span>
+              <span style={{ color: "#FCD34D", fontWeight: 700 }}>our founders compete at the highest level</span>
             </div>
           </div>
-
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-            {[["🏆", "Asia's Biggest", "Tech Platform"], ["🎯", "2 Projects", "Active"], ["⚡", "IIT Bombay", "Validated"]].map(([emoji, line1, line2]) => (
-              <div key={line1} style={{
-                textAlign: "center",
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(251,191,36,0.15)",
-                borderRadius: 14, padding: "14px 20px",
-              }}>
-                <div style={{ fontSize: 22, marginBottom: 4 }}>{emoji}</div>
+            {[
+              { icon: <Award size={20} color="#FCD34D" strokeWidth={1.8} />, line1: "Asia's Biggest", line2: "Tech Platform" },
+              { icon: <BarChart3 size={20} color="#FCD34D" strokeWidth={1.8} />, line1: "2 Projects", line2: "Active" },
+              { icon: <Star size={20} color="#FCD34D" strokeWidth={1.8} />, line1: "IIT Bombay", line2: "Validated" },
+            ].map(({ icon, line1, line2 }) => (
+              <div key={line1} style={{ textAlign: "center", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(251,191,36,0.12)", borderRadius: 14, padding: "16px 22px", display: "flex", flexDirection: "column", alignItems: "center", gap: 6 }}>
+                {icon}
                 <div style={{ fontSize: 15, fontWeight: 800, color: "#FCD34D" }}>{line1}</div>
-                <div style={{ fontSize: 12, color: "#94A3B8", fontWeight: 500 }}>{line2}</div>
+                {/* FIXED: was #94A3B8, now #CBD5E1 */}
+                <div style={{ fontSize: 12, color: "#CBD5E1", fontWeight: 600 }}>{line2}</div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* ── TWO PROJECT CARDS ── */}
+        {/* TWO PROJECT CARDS */}
         <div className="projects-grid" style={{ display: "flex", gap: 28 }}>
 
-          {/* ── PROJECT 1: ALGO TRADING ── */}
+          {/* PROJECT 1 */}
           <div className="project-card" style={{ flex: 1 }}>
-            {/* Corner glow */}
-            <div style={{
-              position: "absolute", top: -50, right: -50,
-              width: 250, height: 250, borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)",
-              pointerEvents: "none",
-            }} />
-
-            {/* Card Header */}
+            <div style={{ position: "absolute", top: -50, right: -50, width: 250, height: 250, borderRadius: "50%", background: "radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
             <div style={{ display: "flex", alignItems: "flex-start", gap: 18, marginBottom: 32 }}>
-              <div style={{
-                width: 72, height: 72, borderRadius: 18,
-                background: "linear-gradient(145deg, #1E3A8A, #3B82F6)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                flexShrink: 0, boxShadow: "0 0 28px rgba(59,130,246,0.4)",
-                animation: "floatUp 4s ease-in-out infinite",
-                fontSize: 32,
-              }}>📈</div>
+              <div style={{ width: 72, height: 72, borderRadius: 18, background: "linear-gradient(145deg, #1E3A8A, #3B82F6)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, boxShadow: "0 0 28px rgba(59,130,246,0.35)", animation: "floatUp 4s ease-in-out infinite" }}>
+                <TrendingUp size={32} color="#fff" strokeWidth={1.6} />
+              </div>
               <div style={{ flex: 1 }}>
-                <div className="iit-badge" style={{ marginBottom: 12 }}>
-                  <Star size={12} color="#FCD34D" />
-                  Techfest, IIT Bombay
-                </div>
-                <h3 style={{
-                  fontSize: "clamp(22px, 2.5vw, 32px)",
-                  fontWeight: 900, color: "#FFFFFF",
-                  letterSpacing: "-0.03em", lineHeight: 1.2,
-                }}>
-                  Algorithmic Trading Challenge
-                </h3>
+                <div className="iit-badge" style={{ marginBottom: 12 }}><Star size={12} color="#FCD34D" />Techfest, IIT Bombay</div>
+                <h3 style={{ fontSize: "clamp(22px, 2.5vw, 32px)", fontWeight: 900, color: "#FFFFFF", letterSpacing: "-0.03em", lineHeight: 1.2 }}>Algorithmic Trading Challenge</h3>
               </div>
             </div>
-
-            <div style={{
-              width: "100%", height: 1,
-              background: "linear-gradient(90deg, rgba(59,130,246,0.4), transparent)",
-              marginBottom: 28,
-            }} />
-
-            {/* Description */}
-            <p style={{
-              color: "#CBD5E1", fontSize: 17,
-              lineHeight: 1.85, marginBottom: 32,
-            }}>
+            <div style={{ width: "100%", height: 1, background: "linear-gradient(90deg, rgba(59,130,246,0.4), transparent)", marginBottom: 28 }} />
+            <p style={{ color: "#CBD5E1", fontSize: 17, lineHeight: 1.85, marginBottom: 28, fontWeight: 500 }}>
               Fehed and Omar are designing a{" "}
-              <span style={{ color: "#60A5FA", fontWeight: 600 }}>
-                rule-based algorithmic trading system
-              </span>{" "}
-              using real market data. The project involves aptitude and strategy design,
-              Python-based backtesting, and real-world equity trading simulation.
+              <span style={{ color: "#60A5FA", fontWeight: 700 }}>rule-based algorithmic trading system</span>{" "}
+              using real market data. The project involves aptitude and strategy design, Python-based backtesting, and real-world equity trading simulation.
             </p>
-
-            <p style={{
-              color: "#CBD5E1", fontSize: 17,
-              lineHeight: 1.85, marginBottom: 36,
-            }}>
+            <p style={{ color: "#CBD5E1", fontSize: 17, lineHeight: 1.85, marginBottom: 36, fontWeight: 500 }}>
               This challenge combines{" "}
-              <span style={{ color: "#60A5FA", fontWeight: 600 }}>finance, coding, and AI-driven analytics</span>
-              , preparing them to build TechInnosphere's future AI-based trading intelligence product.
+              <span style={{ color: "#60A5FA", fontWeight: 700 }}>finance, coding, and AI-driven analytics</span>, preparing them to build TechInnosphere's future AI-based trading intelligence product.
             </p>
-
-            {/* Features Grid */}
-            <div className="features-grid" style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(2, 1fr)",
-              gap: 14,
-            }}>
+            <div className="features-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 14 }}>
               {tradingFeatures.map(({ icon, title, desc }) => (
                 <div key={title} className="feature-item">
-                  <div style={{
-                    width: 46, height: 46, borderRadius: 12,
-                    background: "rgba(59,130,246,0.1)",
-                    border: "1px solid rgba(59,130,246,0.2)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    flexShrink: 0,
-                  }}>{icon}</div>
+                  <div style={{ width: 46, height: 46, borderRadius: 12, background: "rgba(59,130,246,0.08)", border: "1px solid rgba(59,130,246,0.18)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{icon}</div>
                   <div>
-                    <div style={{
-                      fontSize: 15, fontWeight: 700,
-                      color: "#FFFFFF", marginBottom: 4, lineHeight: 1.3,
-                    }}>{title}</div>
-                    <div style={{
-                      fontSize: 13, color: "#94A3B8",
-                      fontWeight: 400, lineHeight: 1.5,
-                    }}>{desc}</div>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: "#FFFFFF", marginBottom: 4, lineHeight: 1.3 }}>{title}</div>
+                    {/* FIXED: was #94A3B8, now #CBD5E1 */}
+                    <div style={{ fontSize: 13, color: "#CBD5E1", lineHeight: 1.5, fontWeight: 500 }}>{desc}</div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* ── PROJECT 2: AAROHAN ── */}
+          {/* PROJECT 2 */}
           <div className="project-card" style={{ flex: 1 }}>
-            {/* Corner glow */}
-            <div style={{
-              position: "absolute", top: -50, right: -50,
-              width: 250, height: 250, borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(251,191,36,0.08) 0%, transparent 70%)",
-              pointerEvents: "none",
-            }} />
-
-            {/* Card Header */}
+            <div style={{ position: "absolute", top: -50, right: -50, width: 250, height: 250, borderRadius: "50%", background: "radial-gradient(circle, rgba(251,191,36,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
             <div style={{ display: "flex", alignItems: "flex-start", gap: 18, marginBottom: 32 }}>
-              <div style={{
-                width: 72, height: 72, borderRadius: 18,
-                background: "linear-gradient(145deg, #92400E, #F59E0B)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                flexShrink: 0, boxShadow: "0 0 28px rgba(251,191,36,0.35)",
-                animation: "floatUp 4s ease-in-out infinite",
-                animationDelay: "1s", fontSize: 32,
-              }}>🇮🇳</div>
+              <div style={{ width: 72, height: 72, borderRadius: 18, background: "linear-gradient(145deg, #92400E, #D97706)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, boxShadow: "0 0 28px rgba(251,191,36,0.3)", animation: "floatUp 4s ease-in-out infinite", animationDelay: "1s" }}>
+                <Flag size={32} color="#FCD34D" strokeWidth={1.6} />
+              </div>
               <div style={{ flex: 1 }}>
-                <div className="iit-badge" style={{ marginBottom: 12 }}>
-                  <Award size={12} color="#FCD34D" />
-                  Techfest, IIT Bombay
-                </div>
-                <h3 style={{
-                  fontSize: "clamp(22px, 2.5vw, 32px)",
-                  fontWeight: 900, color: "#FFFFFF",
-                  letterSpacing: "-0.03em", lineHeight: 1.2,
-                }}>
-                  Aarohan — Viksit Bharat Challenge
-                </h3>
+                <div className="iit-badge" style={{ marginBottom: 12 }}><Award size={12} color="#FCD34D" />Techfest, IIT Bombay</div>
+                <h3 style={{ fontSize: "clamp(22px, 2.5vw, 32px)", fontWeight: 900, color: "#FFFFFF", letterSpacing: "-0.03em", lineHeight: 1.2 }}>Aarohan — Viksit Bharat Challenge</h3>
               </div>
             </div>
-
-            <div style={{
-              width: "100%", height: 1,
-              background: "linear-gradient(90deg, rgba(251,191,36,0.4), transparent)",
-              marginBottom: 28,
-            }} />
-
-            {/* Description */}
-            <p style={{
-              color: "#CBD5E1", fontSize: 17,
-              lineHeight: 1.85, marginBottom: 32,
-            }}>
+            <div style={{ width: "100%", height: 1, background: "linear-gradient(90deg, rgba(251,191,36,0.35), transparent)", marginBottom: 28 }} />
+            <p style={{ color: "#CBD5E1", fontSize: 17, lineHeight: 1.85, marginBottom: 28, fontWeight: 500 }}>
               Both founders are developing{" "}
-              <span style={{ color: "#FCD34D", fontWeight: 600 }}>Aarohan</span>
-              , a national innovation project shaping India's{" "}
-              <span style={{ color: "#60A5FA", fontWeight: 600 }}>Viksit Bharat 2047</span>{" "}
-              vision.
+              <span style={{ color: "#FCD34D", fontWeight: 700 }}>Aarohan</span>, a national innovation project shaping India's{" "}
+              <span style={{ color: "#60A5FA", fontWeight: 700 }}>Viksit Bharat 2047</span>{" "}vision.
             </p>
-
-            <p style={{
-              color: "#CBD5E1", fontSize: 17,
-              lineHeight: 1.85, marginBottom: 36,
-            }}>
+            <p style={{ color: "#CBD5E1", fontSize: 17, lineHeight: 1.85, marginBottom: 36, fontWeight: 500 }}>
               They are building tech prototypes focused on{" "}
-              <span style={{ color: "#60A5FA", fontWeight: 600 }}>
-                Public Transport and Traffic Management, Digital and Inclusive Governance,
-              </span>{" "}
+              <span style={{ color: "#60A5FA", fontWeight: 700 }}>Public Transport and Traffic Management, Digital and Inclusive Governance,</span>{" "}
               and the{" "}
-              <span style={{ color: "#60A5FA", fontWeight: 600 }}>
-                Future of Education and Skilling
-              </span>.
+              <span style={{ color: "#60A5FA", fontWeight: 700 }}>Future of Education and Skilling</span>.
             </p>
-
-            {/* Features */}
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               {aarohanFeatures.map(({ icon, title, desc }) => (
                 <div key={title} className="feature-item">
-                  <div style={{
-                    width: 46, height: 46, borderRadius: 12,
-                    background: "rgba(251,191,36,0.08)",
-                    border: "1px solid rgba(251,191,36,0.2)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    flexShrink: 0,
-                  }}>{icon}</div>
+                  <div style={{ width: 46, height: 46, borderRadius: 12, background: "rgba(251,191,36,0.06)", border: "1px solid rgba(251,191,36,0.18)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{icon}</div>
                   <div>
-                    <div style={{
-                      fontSize: 16, fontWeight: 700,
-                      color: "#FFFFFF", marginBottom: 4, lineHeight: 1.3,
-                    }}>{title}</div>
-                    <div style={{
-                      fontSize: 14, color: "#94A3B8",
-                      fontWeight: 400, lineHeight: 1.5,
-                    }}>{desc}</div>
+                    <div style={{ fontSize: 16, fontWeight: 700, color: "#FFFFFF", marginBottom: 4, lineHeight: 1.3 }}>{title}</div>
+                    {/* FIXED: was #94A3B8, now #CBD5E1 */}
+                    <div style={{ fontSize: 14, color: "#CBD5E1", lineHeight: 1.5, fontWeight: 500 }}>{desc}</div>
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Viksit Bharat badge */}
-            <div style={{
-              marginTop: 36, padding: "20px 28px",
-              background: "linear-gradient(135deg, rgba(251,191,36,0.08), rgba(29,78,216,0.08))",
-              border: "1px solid rgba(251,191,36,0.2)",
-              borderRadius: 14,
-              display: "flex", alignItems: "center", gap: 16,
-            }}>
-              <div style={{ fontSize: 28, flexShrink: 0 }}>🚀</div>
+            <div style={{ marginTop: 36, padding: "22px 28px", background: "linear-gradient(135deg, rgba(251,191,36,0.06), rgba(29,78,216,0.06))", border: "1px solid rgba(251,191,36,0.18)", borderRadius: 14, display: "flex", alignItems: "center", gap: 18 }}>
+              <div style={{ width: 48, height: 48, borderRadius: 12, background: "rgba(251,191,36,0.08)", border: "1px solid rgba(251,191,36,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                <Rocket size={24} color="#FCD34D" strokeWidth={1.8} />
+              </div>
               <div>
-                <div style={{
-                  fontSize: 18, fontWeight: 800,
-                  color: "#FCD34D", marginBottom: 4,
-                }}>Viksit Bharat 2047 Vision</div>
-                <div style={{ fontSize: 14, color: "#94A3B8", lineHeight: 1.6 }}>
-                  Building India's future through technology, innovation & inclusive growth
-                </div>
+                <div style={{ fontSize: 18, fontWeight: 800, color: "#FCD34D", marginBottom: 4 }}>Viksit Bharat 2047 Vision</div>
+                {/* FIXED: was #94A3B8, now #CBD5E1 */}
+                <div style={{ fontSize: 14, color: "#CBD5E1", lineHeight: 1.6, fontWeight: 500 }}>Building India's future through technology, innovation & inclusive growth</div>
               </div>
             </div>
           </div>
-
         </div>
 
-        {/* ── BOTTOM CREDIBILITY STRIP ── */}
-        <div style={{
-          marginTop: 60,
-          padding: "36px 44px",
-          background: "rgba(255,255,255,0.02)",
-          border: "1px solid rgba(59,130,246,0.12)",
-          borderRadius: 20,
-          display: "flex", alignItems: "center",
-          justifyContent: "space-around",
-          flexWrap: "wrap", gap: 24,
-        }}>
+        {/* BOTTOM CREDIBILITY STRIP */}
+        <div style={{ marginTop: 60, padding: "36px 44px", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(59,130,246,0.1)", borderRadius: 20, display: "flex", alignItems: "center", justifyContent: "space-around", flexWrap: "wrap", gap: 24 }}>
           {[
-            { emoji: "🎓", value: "IIT Bombay", label: "Techfest Participant" },
-            { emoji: "📊", value: "2 Projects", label: "Simultaneously Active" },
-            { emoji: "🤖", value: "AI + Finance", label: "Cross-Domain Innovation" },
-            { emoji: "🇮🇳", value: "National Level", label: "Viksit Bharat 2047" },
-          ].map(({ emoji, value, label }) => (
+            { icon: <GraduationCap size={28} color="#60A5FA" strokeWidth={1.6} />, value: "IIT Bombay", label: "Techfest Participant" },
+            { icon: <BarChart3 size={28} color="#60A5FA" strokeWidth={1.6} />, value: "2 Projects", label: "Simultaneously Active" },
+            { icon: <Brain size={28} color="#60A5FA" strokeWidth={1.6} />, value: "AI + Finance", label: "Cross-Domain Innovation" },
+            { icon: <Globe size={28} color="#60A5FA" strokeWidth={1.6} />, value: "National Level", label: "Viksit Bharat 2047" },
+          ].map(({ icon, value, label }) => (
             <div key={value} style={{ textAlign: "center" }}>
-              <div style={{ fontSize: 28, marginBottom: 8 }}>{emoji}</div>
-              <div style={{
-                fontSize: 22, fontWeight: 900, color: "#FFFFFF",
-                letterSpacing: "-0.02em", marginBottom: 4,
-              }}>{value}</div>
-              <div style={{ fontSize: 14, color: "#64748B", fontWeight: 500 }}>{label}</div>
+              <div style={{ display: "flex", justifyContent: "center", marginBottom: 10 }}>{icon}</div>
+              <div style={{ fontSize: 22, fontWeight: 900, color: "#FFFFFF", letterSpacing: "-0.02em", marginBottom: 4 }}>{value}</div>
+              {/* FIXED: was #64748B, now #94A3B8 */}
+              <div style={{ fontSize: 14, color: "#94A3B8", fontWeight: 600 }}>{label}</div>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
