@@ -7,6 +7,7 @@ export default function Navbar() {
   const [active, setActive] = useState("Home");
   const [hovered, setHovered] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [logoHovered, setLogoHovered] = useState(false);
   const [time, setTime] = useState("");
 
   useEffect(() => {
@@ -49,17 +50,17 @@ export default function Navbar() {
           0% { background-position: 0% 0%; }
           100% { background-position: 200% 0%; }
         }
-        @keyframes glowPulse {
-          0%, 100% { box-shadow: 0 0 24px rgba(59,130,246,0.45); }
-          50% { box-shadow: 0 0 48px rgba(59,130,246,0.9); }
-        }
         @keyframes greenPulse {
-          0%, 100% { box-shadow: 0 0 5px #22C55E; }
-          50% { box-shadow: 0 0 14px #22C55E; }
+          0%, 100% { box-shadow: 0 0 5px #16A34A; }
+          50% { box-shadow: 0 0 14px #16A34A; }
         }
         @keyframes mobileSlideDown {
           from { opacity: 0; transform: translateY(-10px); }
           to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes logoShimmer {
+          0% { left: -100%; }
+          100% { left: 200%; }
         }
         .nav-link {
           position: relative;
@@ -76,27 +77,77 @@ export default function Navbar() {
         .hamburger-line {
           width: 100%;
           height: 2px;
-          background: #E2E8F0;
+          background: #0A1B5C;
           border-radius: 2px;
           transition: all 0.3s ease;
           display: block;
+        }
+        .logo-wrapper {
+          position: relative;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          user-select: none;
+          flex-shrink: 0;
+          padding: 8px 16px 8px 8px;
+          border-radius: 14px;
+          border: 1.5px solid transparent;
+          transition: all 0.3s ease;
+        }
+        .logo-wrapper:hover {
+          border-color: rgba(10,27,92,0.12);
+          background: rgba(10,27,92,0.03);
+          box-shadow: 0 4px 24px rgba(10,27,92,0.08), 0 1px 4px rgba(10,27,92,0.06);
+        }
+        .logo-img {
+          height: 48px;
+          width: auto;
+          object-fit: contain;
+          display: block;
+          transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                      filter 0.35s ease;
+          filter: drop-shadow(0 2px 6px rgba(10,27,92,0.15));
+        }
+        .logo-wrapper:hover .logo-img {
+          transform: scale(1.06) translateY(-1px);
+          filter: drop-shadow(0 6px 16px rgba(10,27,92,0.22));
+        }
+        .logo-shimmer {
+          position: absolute;
+          top: 0; bottom: 0;
+          width: 40%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
+          pointer-events: none;
+          opacity: 0;
+          transition: opacity 0.2s ease;
+        }
+        .logo-wrapper:hover .logo-shimmer {
+          opacity: 1;
+          animation: logoShimmer 0.65s ease forwards;
+        }
+        .logo-divider {
+          width: 1px;
+          height: 36px;
+          background: linear-gradient(180deg, transparent, rgba(10,27,92,0.15), transparent);
+          margin-left: 8px;
+          flex-shrink: 0;
         }
         @media (max-width: 1024px) {
           .nav-links-pill { display: none !important; }
           .nav-live-badge { display: none !important; }
           .nav-clock { display: none !important; }
           .hamburger { display: flex !important; }
+          .logo-divider { display: none !important; }
         }
         @media (max-width: 480px) {
-          .nav-brand-sub { display: none !important; }
           .nav-contact-btn { display: none !important; }
         }
       `}</style>
 
-      {/* TOP LINE */}
+      {/* TOP ACCENT LINE */}
       <div style={{
         position: "fixed", top: 0, left: 0, right: 0, height: 4,
-        background: "linear-gradient(90deg, #1D4ED8, #3B82F6, #93C5FD, #3B82F6, #1D4ED8)",
+        background: "linear-gradient(90deg, #0A1B5C, #1E4FD8, #3B82F6, #1E4FD8, #0A1B5C)",
         backgroundSize: "200% 100%",
         animation: "slideGradient 3s linear infinite",
         zIndex: 1002,
@@ -106,72 +157,75 @@ export default function Navbar() {
         position: "fixed", top: 4, left: 0, right: 0,
         zIndex: 1001, height: 86, padding: "0 4%",
         display: "flex", alignItems: "center", justifyContent: "space-between",
-        background: scrolled ? "rgba(2,6,16,0.97)" : "rgba(2,6,16,0.6)",
+        background: scrolled ? "rgba(255,255,255,0.98)" : "rgba(255,255,255,0.95)",
         backdropFilter: "blur(28px)", WebkitBackdropFilter: "blur(28px)",
-        borderBottom: "1px solid rgba(59,130,246,0.1)",
-        boxShadow: scrolled ? "0 8px 48px rgba(0,0,0,0.6)" : "none",
+        borderBottom: scrolled
+          ? "1px solid rgba(10,27,92,0.12)"
+          : "1px solid rgba(10,27,92,0.07)",
+        boxShadow: scrolled
+          ? "0 4px 32px rgba(10,27,92,0.1)"
+          : "0 2px 12px rgba(10,27,92,0.06)",
         transition: "background 0.4s ease, box-shadow 0.4s ease",
         fontFamily: "'Segoe UI', sans-serif",
       }}>
 
-        {/* LOGO */}
-        <div onClick={() => scrollTo("Home")} style={{
-          display: "flex", alignItems: "center",
-          gap: 14, cursor: "pointer", userSelect: "none", flexShrink: 0,
-        }}>
-          <div style={{
-            width: 58, height: 58, borderRadius: 16,
-            background: "linear-gradient(145deg, #1E3A8A, #3B82F6)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontWeight: 900, fontSize: 26, color: "#fff",
-            animation: "glowPulse 3s ease-in-out infinite",
-            border: "1px solid rgba(96,165,250,0.3)",
-            position: "relative", overflow: "hidden", flexShrink: 0,
-          }}>
-            <div style={{
-              position: "absolute", top: -12, left: -12,
-              width: 30, height: 76,
-              background: "rgba(255,255,255,0.12)",
-              transform: "rotate(30deg)", pointerEvents: "none"
-            }} />
-            T
-          </div>
-          <div>
-            <div style={{
-              fontSize: 22, fontWeight: 900,
-              color: "#FFFFFF", letterSpacing: "-0.03em", lineHeight: 1.1,
-            }}>
-              Tech
-              <span style={{
-                background: "linear-gradient(90deg, #60A5FA, #93C5FD)",
-                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
-              }}>Inno</span>
-              sphere
-            </div>
-            <div className="nav-brand-sub" style={{
-              fontSize: 10, color: "#3B82F6",
-              letterSpacing: "0.2em", textTransform: "uppercase",
-              fontWeight: 700, marginTop: 3,
-              display: "flex", alignItems: "center", gap: 6,
-            }}>
+        {/* ── LOGO ── */}
+        <div style={{ display: "flex", alignItems: "center", gap: 0 }}>
+          <div
+            className="logo-wrapper"
+            onClick={() => scrollTo("Home")}
+            onMouseEnter={() => setLogoHovered(true)}
+            onMouseLeave={() => setLogoHovered(false)}
+          >
+            {/* shimmer sweep on hover */}
+            <div className="logo-shimmer" />
+
+            <img
+              src="/TechInnosphere_Logo.png"
+              alt="TechInnosphere"
+              className="logo-img"
+            />
+
+            {/* tiny "home" tooltip on hover */}
+            {logoHovered && (
               <div style={{
-                width: 5, height: 5, borderRadius: "50%",
-                background: "#3B82F6", boxShadow: "0 0 6px #3B82F6"
-              }} />
-              IIT · Innovation · Tech
-              <div style={{
-                width: 5, height: 5, borderRadius: "50%",
-                background: "#3B82F6", boxShadow: "0 0 6px #3B82F6"
-              }} />
-            </div>
+                position: "absolute",
+                bottom: -34, left: "50%",
+                transform: "translateX(-50%)",
+                background: "#0A1B5C",
+                color: "#fff",
+                fontSize: 11, fontWeight: 700,
+                padding: "4px 10px",
+                borderRadius: 6,
+                whiteSpace: "nowrap",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                boxShadow: "0 4px 12px rgba(10,27,92,0.2)",
+                pointerEvents: "none",
+                zIndex: 10,
+              }}>
+                ↑ Back to Top
+                <div style={{
+                  position: "absolute", top: -4, left: "50%",
+                  transform: "translateX(-50%)",
+                  width: 8, height: 8,
+                  background: "#0A1B5C",
+                  clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)",
+                  rotate: "180deg",
+                }} />
+              </div>
+            )}
           </div>
+
+          {/* elegant vertical divider */}
+          <div className="logo-divider" />
         </div>
 
-        {/* NAV LINKS */}
+        {/* ── NAV LINKS PILL ── */}
         <div className="nav-links-pill" style={{
           display: "flex", alignItems: "center", gap: 2,
-          background: "rgba(255,255,255,0.03)",
-          border: "1px solid rgba(255,255,255,0.07)",
+          background: "rgba(10,27,92,0.04)",
+          border: "1px solid rgba(10,27,92,0.08)",
           borderRadius: 60, padding: "8px 10px",
         }}>
           {links.map((link) => {
@@ -184,12 +238,12 @@ export default function Navbar() {
                 onMouseLeave={() => setHovered(null)}
                 style={{
                   fontWeight: isActive ? 700 : 500,
-                  color: isActive ? "#fff" : isHov ? "#E2E8F0" : "#94A3B8",
+                  color: isActive ? "#fff" : isHov ? "#0A1B5C" : "#475569",
                   background: isActive
-                    ? "linear-gradient(135deg, #1D4ED8, #3B82F6)"
-                    : isHov ? "rgba(59,130,246,0.07)" : "transparent",
+                    ? "linear-gradient(135deg, #0A1B5C, #1E4FD8)"
+                    : isHov ? "rgba(10,27,92,0.06)" : "transparent",
                   boxShadow: isActive
-                    ? "0 4px 20px rgba(59,130,246,0.45)"
+                    ? "0 4px 16px rgba(10,27,92,0.25)"
                     : "none",
                 }}>
                 {link}
@@ -198,7 +252,7 @@ export default function Navbar() {
                     position: "absolute", bottom: 3, left: "50%",
                     transform: "translateX(-50%)",
                     width: 4, height: 4, borderRadius: "50%",
-                    background: "#93C5FD", boxShadow: "0 0 8px #60A5FA",
+                    background: "#3B82F6", boxShadow: "0 0 8px #3B82F6",
                   }} />
                 )}
               </div>
@@ -206,56 +260,62 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* RIGHT */}
+        {/* ── RIGHT SIDE ── */}
         <div style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0 }}>
+
+          {/* CLOCK */}
           <div className="nav-clock" style={{
             display: "flex", alignItems: "center", gap: 8,
-            background: "rgba(15,23,42,0.8)",
-            border: "1px solid rgba(59,130,246,0.15)",
+            background: "rgba(10,27,92,0.04)",
+            border: "1px solid rgba(10,27,92,0.1)",
             borderRadius: 10, padding: "8px 14px",
           }}>
             <span style={{ fontSize: 14 }}>🕐</span>
             <span style={{
-              fontSize: 13, color: "#64748B",
+              fontSize: 13, color: "#0A1B5C",
               fontWeight: 700, fontFamily: "monospace", letterSpacing: "0.08em",
             }}>{time}</span>
           </div>
 
+          {/* LIVE BADGE */}
           <div className="nav-live-badge" style={{
             display: "flex", alignItems: "center", gap: 7,
-            background: "rgba(34,197,94,0.07)",
-            border: "1px solid rgba(34,197,94,0.2)",
+            background: "rgba(22,163,74,0.07)",
+            border: "1px solid rgba(22,163,74,0.2)",
             borderRadius: 50, padding: "8px 16px",
           }}>
             <div style={{
               width: 7, height: 7, borderRadius: "50%",
-              background: "#22C55E",
-              animation: "greenPulse 2s ease-in-out infinite"
+              background: "#16A34A",
+              animation: "greenPulse 2s ease-in-out infinite",
             }} />
             <span style={{
-              fontSize: 11, color: "#86EFAC",
-              fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase"
+              fontSize: 11, color: "#16A34A",
+              fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase",
             }}>Live</span>
           </div>
 
+          {/* CONTACT BUTTON */}
           <button className="nav-contact-btn"
             onClick={() => scrollTo("Contact")}
             onMouseEnter={e => {
               e.currentTarget.style.transform = "translateY(-2px)";
-              e.currentTarget.style.boxShadow = "0 14px 36px rgba(59,130,246,0.55)";
+              e.currentTarget.style.boxShadow = "0 14px 36px rgba(10,27,92,0.35)";
+              e.currentTarget.style.background = "linear-gradient(135deg, #0A1B5C, #2563EB)";
             }}
             onMouseLeave={e => {
               e.currentTarget.style.transform = "translateY(0)";
-              e.currentTarget.style.boxShadow = "0 4px 20px rgba(59,130,246,0.3)";
+              e.currentTarget.style.boxShadow = "0 4px 20px rgba(10,27,92,0.2)";
+              e.currentTarget.style.background = "linear-gradient(135deg, #0A1B5C, #1E4FD8)";
             }}
             style={{
-              background: "linear-gradient(135deg, #1D4ED8, #3B82F6)",
-              border: "1px solid rgba(96,165,250,0.3)",
+              background: "linear-gradient(135deg, #0A1B5C, #1E4FD8)",
+              border: "none",
               color: "#fff", fontWeight: 700, fontSize: 15,
               padding: "13px 28px", borderRadius: 50,
               cursor: "pointer", letterSpacing: "0.04em",
-              boxShadow: "0 4px 20px rgba(59,130,246,0.3)",
-              transition: "transform 0.15s ease, box-shadow 0.15s ease",
+              boxShadow: "0 4px 20px rgba(10,27,92,0.2)",
+              transition: "transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease",
               whiteSpace: "nowrap",
               display: "flex", alignItems: "center", gap: 8,
             }}>
@@ -267,14 +327,15 @@ export default function Navbar() {
             }}>→</span>
           </button>
 
+          {/* HAMBURGER */}
           <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}
             style={{
               display: "none", flexDirection: "column",
               gap: 5, cursor: "pointer",
               width: 40, height: 40,
               alignItems: "center", justifyContent: "center",
-              background: "rgba(59,130,246,0.08)",
-              border: "1px solid rgba(59,130,246,0.2)",
+              background: "rgba(10,27,92,0.05)",
+              border: "1px solid rgba(10,27,92,0.12)",
               borderRadius: 10, flexShrink: 0,
             }}>
             <span className="hamburger-line" style={{
@@ -290,48 +351,73 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* MOBILE MENU */}
+      {/* ── MOBILE MENU ── */}
       {menuOpen && (
         <div style={{
           position: "fixed", top: 90, left: 0, right: 0, zIndex: 1000,
-          background: "rgba(2,6,16,0.98)", backdropFilter: "blur(24px)",
-          borderBottom: "1px solid rgba(59,130,246,0.1)",
+          background: "rgba(255,255,255,0.99)", backdropFilter: "blur(24px)",
+          borderBottom: "1px solid rgba(10,27,92,0.1)",
           padding: "8px 4% 24px",
           animation: "mobileSlideDown 0.2s ease",
+          boxShadow: "0 8px 32px rgba(10,27,92,0.1)",
         }}>
+
+          {/* mobile logo */}
+          <div style={{
+            display: "flex", alignItems: "center", justifyContent: "center",
+            padding: "12px 0 16px",
+            borderBottom: "1px solid rgba(10,27,92,0.07)",
+            marginBottom: 4,
+          }}>
+            <img
+              src="/TechInnosphere_Logo.png"
+              alt="TechInnosphere"
+              style={{
+                height: 40, width: "auto", objectFit: "contain",
+                filter: "drop-shadow(0 2px 8px rgba(10,27,92,0.15))",
+              }}
+            />
+          </div>
+
+          {/* MOBILE CLOCK + LIVE */}
           <div style={{
             display: "flex", alignItems: "center", gap: 8,
-            padding: "14px 0", borderBottom: "1px solid rgba(255,255,255,0.04)", marginBottom: 4,
+            padding: "12px 0", borderBottom: "1px solid rgba(10,27,92,0.07)", marginBottom: 4,
           }}>
             <span>🕐</span>
-            <span style={{ fontSize: 14, color: "#334155", fontWeight: 700, fontFamily: "monospace" }}>{time}</span>
+            <span style={{ fontSize: 14, color: "#0A1B5C", fontWeight: 700, fontFamily: "monospace" }}>{time}</span>
             <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 6 }}>
-              <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#22C55E", boxShadow: "0 0 8px #22C55E" }} />
-              <span style={{ fontSize: 11, color: "#86EFAC", fontWeight: 700 }}>LIVE</span>
+              <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#16A34A", boxShadow: "0 0 8px #16A34A" }} />
+              <span style={{ fontSize: 11, color: "#16A34A", fontWeight: 700 }}>LIVE</span>
             </div>
           </div>
+
+          {/* MOBILE LINKS */}
           {[...links, "Contact"].map((link) => (
             <div key={link} onClick={() => scrollTo(link)} style={{
-              padding: "16px 0", borderBottom: "1px solid rgba(255,255,255,0.04)",
-              color: active === link ? "#60A5FA" : "#94A3B8",
+              padding: "16px 0", borderBottom: "1px solid rgba(10,27,92,0.06)",
+              color: active === link ? "#1E4FD8" : "#475569",
               fontSize: 17, fontWeight: active === link ? 700 : 500,
               cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "space-between",
             }}>
               <span>{link}</span>
               <span style={{
                 width: 28, height: 28,
-                background: active === link ? "rgba(59,130,246,0.15)" : "rgba(255,255,255,0.03)",
-                border: `1px solid ${active === link ? "rgba(59,130,246,0.3)" : "rgba(255,255,255,0.06)"}`,
+                background: active === link ? "rgba(10,27,92,0.08)" : "rgba(10,27,92,0.03)",
+                border: `1px solid ${active === link ? "rgba(10,27,92,0.2)" : "rgba(10,27,92,0.08)"}`,
                 borderRadius: 8, display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 13, color: active === link ? "#60A5FA" : "#1E3A5F",
+                fontSize: 13, color: active === link ? "#1E4FD8" : "#94A3B8",
               }}>→</span>
             </div>
           ))}
+
+          {/* MOBILE CONTACT BUTTON */}
           <button onClick={() => scrollTo("Contact")} style={{
             marginTop: 16, width: "100%",
-            background: "linear-gradient(135deg, #1D4ED8, #3B82F6)",
+            background: "linear-gradient(135deg, #0A1B5C, #1E4FD8)",
             border: "none", color: "#fff", fontWeight: 700, fontSize: 16,
             padding: "15px 0", borderRadius: 12, cursor: "pointer",
+            boxShadow: "0 4px 20px rgba(10,27,92,0.2)",
           }}>Contact Us →</button>
         </div>
       )}
