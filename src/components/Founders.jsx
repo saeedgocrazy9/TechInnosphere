@@ -1,4 +1,4 @@
-import { Code2, Brain, MessageSquare, BarChart3, Server, ShoppingCart, Smartphone, Globe, Zap, Shield, Lock, Eye, Megaphone, Palette, Search, Target, Star, Award, Github, Linkedin } from "lucide-react";
+import { Brain, BarChart3, Shield, Star, Code2, Globe, Server, Award, Linkedin, Mail, TrendingUp } from "lucide-react";
 
 export default function Founders() {
 
@@ -6,184 +6,458 @@ export default function Founders() {
     {
       name: "Fehed Rehman Shaikh",
       role: "Founder & Technical Lead",
-      tagline: "AI, Data Science, BI & Cybersecurity Expert",
-      emoji: "🧠",
-      gradient: "linear-gradient(145deg, #1E3A8A, #3B82F6)",
-      glowColor: "rgba(59,130,246,0.4)",
-      accentColor: "#60A5FA",
-      borderAccent: "rgba(59,130,246,0.35)",
+      tagline: "AI, Data Science, BI & Data Analytics Expert",
+      image: "/Fehed.jpg",
+      initials: "FS",
+      bio: "Specialises in building intelligent systems at the intersection of machine learning, business intelligence, and data analytics. Leads technical strategy and AI product development at TechInnosphere.",
       highlights: [
-        { icon: <Brain size={20} color="#60A5FA" strokeWidth={1.8} />, text: "Python, AI & ML Specialist" },
-        { icon: <BarChart3 size={20} color="#60A5FA" strokeWidth={1.8} />, text: "Created 100+ Analytical Dashboards" },
-        { icon: <Shield size={20} color="#60A5FA" strokeWidth={1.8} />, text: "Deep Expertise in Cybersecurity Architecture" },
-        { icon: <Star size={20} color="#60A5FA" strokeWidth={1.8} />, text: "Leading IIT Bombay Technical Projects" },
+        { icon: <Brain size={18} color="#1E4FD8" strokeWidth={1.8} />, text: "Python, AI & ML Specialist" },
+        { icon: <BarChart3 size={18} color="#1E4FD8" strokeWidth={1.8} />, text: "100+ Analytical Dashboards" },
+        { icon: <TrendingUp size={18} color="#1E4FD8" strokeWidth={1.8} />, text: "Data Analytics" },
+        { icon: <Star size={18} color="#1E4FD8" strokeWidth={1.8} />, text: "IIT Bombay Technical Projects" },
       ],
-      skills: ["Python", "AI & ML", "Data Science", "Power BI", "Cybersecurity", "Tableau", "TensorFlow", "Analytics"],
-      badge: "IIT Bombay · Technical Lead",
-      badgeColor: "rgba(59,130,246,0.15)",
-      badgeBorder: "rgba(59,130,246,0.3)",
-      badgeText: "#93C5FD",
+      skills: ["Python", "AI & ML", "Data Science", "Power BI", "Data Analytics", "Tableau", "TensorFlow"],
     },
     {
       name: "Omar Khan",
       role: "Co-Founder & Engineering Lead",
       tagline: "Full Stack Development Expert",
-      emoji: "⚡",
-      gradient: "linear-gradient(145deg, #134E4A, #0D9488)",
-      glowColor: "rgba(13,148,136,0.4)",
-      accentColor: "#2DD4BF",
-      borderAccent: "rgba(13,148,136,0.35)",
+      image: "/Omar.jpg",
+      initials: "OK",
+      bio: "Architects scalable software systems from mobile to enterprise. Delivered production-grade platforms for government agencies and major organisations across aviation, infrastructure, and SaaS verticals.",
       highlights: [
-        { icon: <Code2 size={20} color="#2DD4BF" strokeWidth={1.8} />, text: "React.js, Node.js, Django & Android" },
-        { icon: <Globe size={20} color="#2DD4BF" strokeWidth={1.8} />, text: "Built Enterprise & Government Systems" },
-        { icon: <Server size={20} color="#2DD4BF" strokeWidth={1.8} />, text: "Scalable Architecture Specialist" },
-        { icon: <Award size={20} color="#2DD4BF" strokeWidth={1.8} />, text: "Pioneer Engineers, GSMASH, Air India Engineering" },
+        { icon: <Code2 size={18} color="#1E4FD8" strokeWidth={1.8} />, text: "React.js, Node.js, Django & Android" },
+        { icon: <Globe size={18} color="#1E4FD8" strokeWidth={1.8} />, text: "Enterprise & Government Systems" },
+        { icon: <Server size={18} color="#1E4FD8" strokeWidth={1.8} />, text: "Scalable Architecture Specialist" },
+        { icon: <Award size={18} color="#1E4FD8" strokeWidth={1.8} />, text: "Pioneer Engineers · Air India" },
       ],
-      skills: ["React.js", "Node.js", "Django", "Android", "Backend", "APIs", "Databases", "DevOps"],
-      badge: "IIT Bombay · Engineering Lead",
-      badgeColor: "rgba(13,148,136,0.15)",
-      badgeBorder: "rgba(13,148,136,0.3)",
-      badgeText: "#5EEAD4",
+      skills: ["React.js", "Node.js", "Django", "Android", "APIs", "Databases", "DevOps"],
     },
   ];
 
   return (
-    <section id="founders" style={{ background: "#020610", padding: "120px 4%", position: "relative", overflow: "hidden", fontFamily: "'Segoe UI', sans-serif" }}>
+    <section id="founders" style={{
+      background: "#FFFFFF",
+      padding: "120px 4%",
+      position: "relative",
+      overflow: "hidden",
+      fontFamily: "'Segoe UI', system-ui, sans-serif",
+    }}>
       <style>{`
-        @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes glowPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
-        @keyframes floatUp { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
-        @keyframes rotateSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.7; } 50% { transform: scale(1.15); opacity: 1; } }
-        .founder-card { flex: 1 1 420px; background: rgba(255,255,255,0.02); border: 1px solid rgba(59,130,246,0.12); border-radius: 28px; padding: 52px; position: relative; overflow: hidden; transition: all 0.3s ease; }
-        .founder-card:hover { transform: translateY(-8px); box-shadow: 0 32px 80px rgba(29,78,216,0.15); }
-        .founder-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; opacity: 0; transition: opacity 0.3s ease; }
-        .founder-card:hover::before { opacity: 1; }
-        .founder-card.blue::before { background: linear-gradient(90deg, #1D4ED8, #3B82F6, #60A5FA, transparent); }
-        .founder-card.teal::before { background: linear-gradient(90deg, #0F766E, #0D9488, #2DD4BF, transparent); }
-        .founder-card.teal:hover { box-shadow: 0 32px 80px rgba(13,148,136,0.15); border-color: rgba(13,148,136,0.35); }
-        .skill-tag-blue { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2); color: #93C5FD; padding: 8px 16px; border-radius: 50px; font-size: 14px; font-weight: 600; transition: all 0.2s; cursor: default; white-space: nowrap; }
-        .skill-tag-blue:hover { background: rgba(59,130,246,0.2); border-color: #3B82F6; color: #fff; transform: translateY(-2px); }
-        .skill-tag-teal { background: rgba(13,148,136,0.1); border: 1px solid rgba(13,148,136,0.2); color: #5EEAD4; padding: 8px 16px; border-radius: 50px; font-size: 14px; font-weight: 600; transition: all 0.2s; cursor: default; white-space: nowrap; }
-        .skill-tag-teal:hover { background: rgba(13,148,136,0.2); border-color: #0D9488; color: #fff; transform: translateY(-2px); }
-        .highlight-item-blue { display: flex; align-items: center; gap: 16px; padding: 18px 22px; background: rgba(255,255,255,0.02); border: 1px solid rgba(59,130,246,0.1); border-radius: 14px; transition: all 0.2s ease; cursor: default; }
-        .highlight-item-blue:hover { background: rgba(59,130,246,0.07); border-color: rgba(59,130,246,0.3); transform: translateX(6px); }
-        .highlight-item-teal { display: flex; align-items: center; gap: 16px; padding: 18px 22px; background: rgba(255,255,255,0.02); border: 1px solid rgba(13,148,136,0.1); border-radius: 14px; transition: all 0.2s ease; cursor: default; }
-        .highlight-item-teal:hover { background: rgba(13,148,136,0.07); border-color: rgba(13,148,136,0.3); transform: translateX(6px); }
-        @media (max-width: 1024px) { .founders-grid { flex-direction: column !important; } .founder-card { padding: 36px !important; } }
-        @media (max-width: 640px) { .founder-card { padding: 24px !important; } }
+        @keyframes fadeSlideUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
+        @keyframes glowPulse   { 0%,100%{opacity:.5;} 50%{opacity:1;} }
+        @keyframes floatUp     { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-6px);} }
+
+        .fn-card {
+          flex: 1 1 440px;
+          background: #FFFFFF;
+          border: 1.5px solid rgba(10,27,92,0.08);
+          border-radius: 24px;
+          overflow: hidden;
+          transition: all 0.25s ease;
+          display: flex;
+          flex-direction: column;
+          box-shadow: 0 2px 12px rgba(10,27,92,0.04);
+        }
+        .fn-card:hover {
+          transform: translateY(-8px);
+          border-color: rgba(30,79,216,0.2);
+          box-shadow: 0 28px 70px rgba(10,27,92,0.1);
+        }
+        .fn-card::before {
+          content: '';
+          position: absolute; top: 0; left: 0; right: 0; height: 3px;
+          background: linear-gradient(90deg, #0A1B5C, #1E4FD8, #3B82F6);
+          opacity: 0; transition: opacity 0.25s ease;
+          border-radius: 24px 24px 0 0;
+        }
+        .fn-card:hover::before { opacity: 1; }
+
+        .fn-image-wrap {
+          position: relative;
+          width: 100%;
+          height: 340px;
+          overflow: hidden;
+          background: linear-gradient(145deg, #0A1B5C, #1E4FD8);
+        }
+        .fn-image-wrap img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center top;
+          display: block;
+          transition: transform 0.5s ease;
+        }
+        .fn-card:hover .fn-image-wrap img { transform: scale(1.04); }
+        .fn-image-overlay {
+          position: absolute; inset: 0;
+          background: linear-gradient(180deg, transparent 35%, rgba(10,27,92,0.88) 100%);
+        }
+        .fn-image-badge {
+          position: absolute; bottom: 24px; left: 28px; right: 28px;
+        }
+
+        .fn-skill {
+          background: #F8FAFF;
+          border: 1px solid rgba(10,27,92,0.1);
+          color: #334155;
+          padding: 7px 14px;
+          border-radius: 6px;
+          font-size: 13px;
+          font-weight: 600;
+          transition: all 0.18s ease;
+          cursor: default;
+          white-space: nowrap;
+          letter-spacing: 0.01em;
+        }
+        .fn-skill:hover {
+          background: #0A1B5C; color: #fff;
+          border-color: #0A1B5C;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(10,27,92,0.15);
+        }
+
+        .fn-highlight {
+          display: flex; align-items: center; gap: 14px;
+          padding: 13px 16px;
+          background: rgba(10,27,92,0.02);
+          border: 1px solid rgba(10,27,92,0.07);
+          border-radius: 10px;
+          transition: all 0.2s ease; cursor: default;
+        }
+        .fn-highlight:hover {
+          background: rgba(30,79,216,0.05);
+          border-color: rgba(30,79,216,0.18);
+          transform: translateX(5px);
+        }
+
+        .fn-social-btn {
+          display: inline-flex; align-items: center; gap: 7px;
+          padding: 10px 20px; border-radius: 8px;
+          font-size: 13px; font-weight: 700; letter-spacing: 0.03em;
+          cursor: pointer;
+          border: 1.5px solid rgba(10,27,92,0.12);
+          background: #F8FAFF; color: #0A1B5C;
+          transition: all 0.2s ease; text-decoration: none;
+        }
+        .fn-social-btn:hover {
+          background: #0A1B5C; color: #fff;
+          border-color: #0A1B5C;
+          transform: translateY(-2px);
+          box-shadow: 0 6px 18px rgba(10,27,92,0.18);
+        }
+
+        .fn-strip-stat {
+          flex: 1 1 100px; text-align: center;
+          background: #FFFFFF;
+          border: 1.5px solid rgba(10,27,92,0.08);
+          border-radius: 16px; padding: 28px 20px;
+          transition: all 0.2s ease;
+          box-shadow: 0 2px 8px rgba(10,27,92,0.04);
+        }
+        .fn-strip-stat:hover {
+          border-color: rgba(30,79,216,0.25);
+          transform: translateY(-4px);
+          box-shadow: 0 14px 36px rgba(10,27,92,0.08);
+        }
+
+        @media (max-width:1024px) { .fn-grid { flex-direction:column !important; } }
+        @media (max-width:640px)  {
+          .fn-stats { flex-wrap:wrap !important; }
+          .fn-strip  { flex-direction:column !important; }
+        }
       `}</style>
 
-      <div style={{ position: "absolute", inset: 0, backgroundImage: `linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px)`, backgroundSize: "52px 52px", pointerEvents: "none" }} />
-      <div style={{ position: "absolute", top: "10%", left: "50%", transform: "translateX(-50%)", width: "70vw", height: "50vh", background: "radial-gradient(ellipse, rgba(29,78,216,0.1) 0%, transparent 70%)", pointerEvents: "none" }} />
+      {/* Dot grid — same as Hero */}
+      <div style={{
+        position: "absolute", inset: 0,
+        backgroundImage: `radial-gradient(circle, rgba(10,27,92,0.07) 1px, transparent 1px)`,
+        backgroundSize: "32px 32px",
+        pointerEvents: "none", opacity: 0.55,
+      }} />
+      {/* Top-right glow */}
+      <div style={{
+        position: "absolute", top: "-20%", right: "-10%",
+        width: "55vw", height: "70vh",
+        background: "radial-gradient(ellipse, rgba(10,27,92,0.055) 0%, transparent 65%)",
+        pointerEvents: "none",
+      }} />
+      {/* Bottom-left glow */}
+      <div style={{
+        position: "absolute", bottom: "-10%", left: "-5%",
+        width: "40vw", height: "50vh",
+        background: "radial-gradient(ellipse, rgba(30,79,216,0.04) 0%, transparent 70%)",
+        pointerEvents: "none",
+      }} />
+      {/* Left accent stripe */}
+      <div style={{
+        position: "absolute", left: 0, top: 0, bottom: 0, width: 3,
+        background: "linear-gradient(180deg, transparent 0%, #0A1B5C 30%, #1E4FD8 65%, transparent 100%)",
+        opacity: 0.14, pointerEvents: "none",
+      }} />
 
-      <div style={{ maxWidth: 1600, margin: "0 auto", position: "relative", zIndex: 1 }}>
+      <div style={{ maxWidth: 1400, margin: "0 auto", position: "relative", zIndex: 1 }}>
 
-        {/* HEADER */}
+        {/* ── HEADER ── */}
         <div style={{ textAlign: "center", marginBottom: 80, animation: "fadeSlideUp 0.7s ease both" }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "rgba(29,78,216,0.1)", border: "1px solid rgba(59,130,246,0.25)", borderRadius: 50, padding: "10px 24px", marginBottom: 28 }}>
-            <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#3B82F6", boxShadow: "0 0 8px #3B82F6", animation: "glowPulse 2s ease-in-out infinite" }} />
-            <span style={{ fontSize: 12, color: "#93C5FD", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase" }}>Meet the Founders</span>
+
+          {/* Badge — same as Hero */}
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: 10,
+            background: "#F0F7FF", border: "1px solid rgba(10,27,92,0.12)",
+            borderRadius: 6, padding: "8px 16px", marginBottom: 40,
+          }}>
+            <div style={{
+              width: 8, height: 8, borderRadius: "50%", background: "#1E4FD8",
+              boxShadow: "0 0 8px rgba(30,79,216,0.5)", animation: "glowPulse 2s ease-in-out infinite",
+            }} />
+            <span style={{ fontSize: 12, color: "#0A1B5C", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+              Meet the Founders
+            </span>
           </div>
-          <h2 style={{ fontSize: "clamp(36px, 4.5vw, 64px)", fontWeight: 900, color: "#FFFFFF", letterSpacing: "-0.03em", lineHeight: 1.05, marginBottom: 24 }}>
-            The Visionaries{" "}
-            <span style={{ background: "linear-gradient(90deg, #3B82F6, #60A5FA, #93C5FD)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Behind TechInnosphere</span>
-          </h2>
-          <div style={{ width: 72, height: 4, borderRadius: 4, background: "linear-gradient(90deg, #1D4ED8, #60A5FA)", margin: "0 auto 24px" }} />
-          <p style={{ color: "#CBD5E1", fontSize: 18, lineHeight: 1.85, maxWidth: 640, margin: "0 auto", fontWeight: 500 }}>
-            A dual-founder team determined to transform{" "}
-            <span style={{ color: "#60A5FA", fontWeight: 700 }}>ideas into real products</span>
-            {" "}— combining deep technical expertise with enterprise-level engineering.
+
+          {/* Headline — matches Hero clamp */}
+          <div style={{ marginBottom: 0 }}>
+            <div style={{
+              fontSize: "clamp(40px, 4.8vw, 70px)", fontWeight: 900,
+              color: "#0A1B5C", lineHeight: 1.02, letterSpacing: "-0.04em",
+            }}>
+              The Visionaries
+            </div>
+            <div style={{
+              fontSize: "clamp(40px, 4.8vw, 70px)", fontWeight: 900,
+              lineHeight: 1.02, letterSpacing: "-0.04em",
+            }}>
+              <span style={{
+                background: "linear-gradient(135deg, #0A1B5C 0%, #1E4FD8 55%, #3B82F6 100%)",
+                WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+              }}>Behind TechInnosphere</span>
+            </div>
+          </div>
+
+          {/* Accent bar — same as Hero */}
+          <div style={{
+            display: "flex", alignItems: "center", gap: 10,
+            margin: "24px auto 32px", justifyContent: "center",
+          }}>
+            <div style={{ width: 52, height: 3, borderRadius: 2, background: "linear-gradient(90deg, #0A1B5C, #1E4FD8)" }} />
+            <div style={{ width: 12, height: 3, borderRadius: 2, background: "#3B82F6", opacity: 0.45 }} />
+            <div style={{ width: 6, height: 3, borderRadius: 2, background: "#3B82F6", opacity: 0.2 }} />
+          </div>
+
+          {/* Subtitle — same clamp as Hero */}
+          <p style={{
+            color: "#1E293B", fontSize: "clamp(17px, 1.5vw, 20px)",
+            lineHeight: 1.75, maxWidth: 600, margin: "0 auto",
+            fontWeight: 600, letterSpacing: "0.005em",
+          }}>
+            A dual-founder team combining deep{" "}
+            <span style={{ color: "#1E4FD8", fontWeight: 800, borderBottom: "2px solid rgba(30,79,216,0.3)", paddingBottom: "1px" }}>AI expertise</span>{" "}
+            with{" "}
+            <span style={{ color: "#1E4FD8", fontWeight: 800, borderBottom: "2px solid rgba(30,79,216,0.3)", paddingBottom: "1px" }}>enterprise-grade engineering</span>{" "}
+            to ship real products.
           </p>
         </div>
 
-        {/* FOUNDER CARDS */}
-        <div className="founders-grid" style={{ display: "flex", gap: 32, alignItems: "stretch" }}>
-          {founders.map((founder, idx) => {
-            const isBlue = idx === 0;
-            const highlightClass = isBlue ? "highlight-item-blue" : "highlight-item-teal";
-            const skillClass = isBlue ? "skill-tag-blue" : "skill-tag-teal";
-            const cardClass = `founder-card ${isBlue ? "blue" : "teal"}`;
+        {/* ── FOUNDER CARDS ── */}
+        <div className="fn-grid" style={{ display: "flex", gap: 28, alignItems: "stretch", marginBottom: 48 }}>
+          {founders.map((f, idx) => (
+            <div key={f.name} className="fn-card" style={{
+              position: "relative",
+              animation: `fadeSlideUp 0.7s ease ${idx * 0.15}s both`,
+            }}>
 
-            return (
-              <div key={founder.name} className={cardClass} style={{ animation: `fadeSlideUp 0.7s ease ${idx * 0.15}s both`, borderColor: idx === 0 ? "rgba(59,130,246,0.15)" : "rgba(13,148,136,0.15)" }}>
-                <div style={{ position: "absolute", top: -60, right: -60, width: 280, height: 280, borderRadius: "50%", background: `radial-gradient(circle, ${isBlue ? "rgba(59,130,246,0.08)" : "rgba(13,148,136,0.08)"} 0%, transparent 70%)`, pointerEvents: "none" }} />
-
-                {/* AVATAR + NAME */}
-                <div style={{ display: "flex", alignItems: "center", gap: 22, marginBottom: 32 }}>
-                  <div style={{ position: "relative", flexShrink: 0 }}>
-                    <div style={{ width: 96, height: 96, borderRadius: "50%", background: founder.gradient, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 42, boxShadow: `0 0 36px ${founder.glowColor}`, border: `2px solid ${founder.borderAccent}`, animation: "floatUp 5s ease-in-out infinite", animationDelay: `${idx * 0.5}s` }}>
-                      {founder.emoji}
-                    </div>
-                    <div style={{ position: "absolute", bottom: 4, right: 4, width: 18, height: 18, borderRadius: "50%", background: "#22C55E", border: "3px solid #020610", boxShadow: "0 0 10px #22C55E", animation: "pulse 2s ease-in-out infinite" }} />
+              {/* ── Photo ── */}
+              <div className="fn-image-wrap">
+                <img src={f.image} alt={f.name} />
+                <div className="fn-image-overlay" />
+                <div className="fn-image-badge">
+                  <div style={{
+                    display: "inline-flex", alignItems: "center", gap: 6,
+                    background: "rgba(255,255,255,0.15)",
+                    backdropFilter: "blur(8px)",
+                    border: "1px solid rgba(255,255,255,0.25)",
+                    borderRadius: 6, padding: "5px 14px",
+                    fontSize: 10, fontWeight: 700, color: "#fff",
+                    letterSpacing: "0.12em", textTransform: "uppercase",
+                    marginBottom: 10,
+                  }}>
+                    <Star size={9} color="#fff" /> IIT Bombay
                   </div>
-                  <div style={{ flex: 1 }}>
-                    <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: founder.badgeColor, border: `1px solid ${founder.badgeBorder}`, borderRadius: 50, padding: "5px 14px", fontSize: 11, fontWeight: 700, color: founder.badgeText, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: 10 }}>
-                      <Star size={10} color={founder.badgeText} />{founder.badge}
-                    </div>
-                    <h3 style={{ fontSize: "clamp(20px, 2vw, 28px)", fontWeight: 900, color: "#FFFFFF", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 4 }}>{founder.name}</h3>
-                    <div style={{ fontSize: 14, color: founder.accentColor, fontWeight: 700, letterSpacing: "0.05em" }}>{founder.role}</div>
+                  <div style={{
+                    fontSize: "clamp(20px, 2vw, 26px)", fontWeight: 900,
+                    color: "#fff", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 4,
+                  }}>
+                    {f.name}
+                  </div>
+                  <div style={{ fontSize: 14, color: "rgba(255,255,255,0.8)", fontWeight: 600 }}>
+                    {f.role}
                   </div>
                 </div>
+              </div>
+
+              {/* ── Content ── */}
+              <div style={{ padding: "36px 40px", flex: 1, display: "flex", flexDirection: "column" }}>
 
                 {/* Tagline */}
-                <div style={{ padding: "14px 20px", background: isBlue ? "rgba(59,130,246,0.07)" : "rgba(13,148,136,0.07)", border: `1px solid ${isBlue ? "rgba(59,130,246,0.2)" : "rgba(13,148,136,0.2)"}`, borderRadius: 12, marginBottom: 28, fontSize: 16, fontWeight: 700, color: founder.accentColor, letterSpacing: "0.01em" }}>
-                  {founder.tagline}
+                <div style={{
+                  padding: "13px 18px",
+                  background: "rgba(10,27,92,0.04)",
+                  border: "1px solid rgba(10,27,92,0.09)",
+                  borderRadius: 10,
+                  fontSize: "clamp(14px, 1.1vw, 15px)",
+                  fontWeight: 700, color: "#1E4FD8",
+                  marginBottom: 22, letterSpacing: "0.01em",
+                }}>
+                  {f.tagline}
                 </div>
 
-                <div style={{ width: "100%", height: 1, background: `linear-gradient(90deg, ${isBlue ? "rgba(59,130,246,0.4)" : "rgba(13,148,136,0.4)"}, transparent)`, marginBottom: 28 }} />
+                {/* Bio */}
+                <p style={{
+                  fontSize: "clamp(15px, 1.2vw, 17px)",
+                  color: "#1E293B", lineHeight: 1.82,
+                  fontWeight: 500, marginBottom: 28,
+                }}>
+                  {f.bio}
+                </p>
 
-                {/* Highlights */}
-                <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 32 }}>
-                  {founder.highlights.map(({ icon, text }) => (
-                    <div key={text} className={highlightClass}>
-                      <div style={{ width: 44, height: 44, borderRadius: 12, background: isBlue ? "rgba(59,130,246,0.1)" : "rgba(13,148,136,0.1)", border: `1px solid ${isBlue ? "rgba(59,130,246,0.2)" : "rgba(13,148,136,0.2)"}`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{icon}</div>
-                      {/* FIXED: was #E2E8F0 at fontSize 16 → now #FFFFFF, fontWeight 600 */}
-                      <span style={{ fontSize: 16, fontWeight: 600, color: "#FFFFFF", lineHeight: 1.4 }}>{text}</span>
+                {/* Divider */}
+                <div style={{ width: "100%", height: 1, background: "linear-gradient(90deg, rgba(10,27,92,0.12), transparent)", marginBottom: 22 }} />
+
+                {/* Highlights label */}
+                <div style={{
+                  fontSize: 11, color: "#94A3B8", fontWeight: 700,
+                  letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: 14,
+                }}>
+                  Key Highlights
+                </div>
+
+                {/* Highlights list */}
+                <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 28 }}>
+                  {f.highlights.map(({ icon, text }) => (
+                    <div key={text} className="fn-highlight">
+                      <div style={{
+                        width: 38, height: 38, borderRadius: 9,
+                        background: "rgba(10,27,92,0.05)", border: "1px solid rgba(10,27,92,0.1)",
+                        display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0,
+                      }}>{icon}</div>
+                      <span style={{
+                        fontSize: "clamp(14px, 1.1vw, 15px)",
+                        fontWeight: 600, color: "#0A1B5C", lineHeight: 1.4,
+                      }}>{text}</span>
                     </div>
                   ))}
                 </div>
 
-                <div style={{ fontSize: 12, color: founder.accentColor, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 14 }}>Core Skills & Technologies</div>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
-                  {founder.skills.map((skill) => (
-                    <span key={skill} className={skillClass}>{skill}</span>
+                {/* Skills label */}
+                <div style={{
+                  fontSize: 11, color: "#94A3B8", fontWeight: 700,
+                  letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: 14,
+                }}>
+                  Core Technologies
+                </div>
+
+                {/* Skills */}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 28 }}>
+                  {f.skills.map(s => (
+                    <span key={s} className="fn-skill">{s}</span>
                   ))}
                 </div>
+
+                {/* Social buttons */}
+                <div style={{
+                  marginTop: "auto", paddingTop: 20,
+                  borderTop: "1px solid rgba(10,27,92,0.07)",
+                  display: "flex", gap: 10,
+                }}>
+                  <span className="fn-social-btn"><Linkedin size={14} /> LinkedIn</span>
+                  <span className="fn-social-btn"><Mail size={14} /> Contact</span>
+                </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
-        {/* COMBINED STRENGTH STRIP */}
-        <div style={{ marginTop: 60, padding: "44px 52px", background: "linear-gradient(135deg, rgba(29,78,216,0.08), rgba(13,148,136,0.08))", border: "1px solid rgba(59,130,246,0.15)", borderRadius: 24, display: "flex", alignItems: "center", gap: 32, flexWrap: "wrap", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", left: "50%", top: 0, bottom: 0, width: 1, background: "linear-gradient(180deg, transparent, rgba(59,130,246,0.3), transparent)", transform: "translateX(-50%)", pointerEvents: "none" }} />
-          <div style={{ flex: "1 1 300px" }}>
-            <div style={{ fontSize: 13, color: "#3B82F6", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 12 }}>Combined Expertise</div>
-            <h3 style={{ fontSize: "clamp(22px, 2.5vw, 34px)", fontWeight: 900, color: "#FFFFFF", letterSpacing: "-0.03em", lineHeight: 1.2, marginBottom: 14 }}>
-              Full-Stack Innovation from{" "}
-              <span style={{ background: "linear-gradient(90deg, #3B82F6, #2DD4BF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>AI to Deployment</span>
-            </h3>
-            {/* FIXED: fontWeight bumped to 500 */}
-            <p style={{ color: "#CBD5E1", fontSize: 16, lineHeight: 1.85, fontWeight: 500 }}>
-              Together, Fehed and Omar cover the entire technology spectrum — from AI models and data pipelines to scalable frontends and production infrastructure.
-            </p>
-          </div>
-          <div style={{ display: "flex", gap: 20, flexWrap: "wrap", flex: "1 1 260px", justifyContent: "flex-end" }}>
-            {[
-              { value: "100+", label: "Dashboards Built", color: "#60A5FA" },
-              { value: "5+", label: "Enterprise Clients", color: "#2DD4BF" },
-              { value: "2", label: "IIT Bombay Projects", color: "#FCD34D" },
-              { value: "∞", label: "Ideas in Pipeline", color: "#A78BFA" },
-            ].map(({ value, label, color }) => (
-              <div key={label} style={{ textAlign: "center", background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 16, padding: "18px 22px", minWidth: 100 }}>
-                <div style={{ fontSize: 32, fontWeight: 900, color, letterSpacing: "-0.03em", marginBottom: 4 }}>{value}</div>
-                {/* FIXED: was #64748B (near invisible), now #94A3B8 */}
-                <div style={{ fontSize: 13, color: "#94A3B8", fontWeight: 600 }}>{label}</div>
+        {/* ── BOTTOM STRIP ── */}
+        <div style={{
+          padding: "48px 52px",
+          background: "linear-gradient(135deg, rgba(10,27,92,0.04), rgba(30,79,216,0.03))",
+          border: "1.5px solid rgba(10,27,92,0.09)",
+          borderRadius: 24,
+          position: "relative", overflow: "hidden",
+        }}>
+          {/* Top accent */}
+          <div style={{
+            position: "absolute", top: 0, left: 0, right: 0, height: 3,
+            background: "linear-gradient(90deg, #0A1B5C, #1E4FD8, #3B82F6)",
+            borderRadius: "24px 24px 0 0",
+          }} />
+          {/* Left accent */}
+          <div style={{
+            position: "absolute", left: 0, top: 0, bottom: 0, width: 4,
+            background: "linear-gradient(180deg, #0A1B5C, #1E4FD8)",
+            borderRadius: "24px 0 0 24px",
+          }} />
+          <div style={{
+            position: "absolute", right: -60, top: -60, width: 320, height: 320,
+            borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(10,27,92,0.04) 0%, transparent 70%)",
+            pointerEvents: "none",
+          }} />
+
+          <div className="fn-strip" style={{ display: "flex", alignItems: "center", gap: 48, flexWrap: "wrap" }}>
+
+            {/* Left text */}
+            <div style={{ flex: "1 1 320px", position: "relative" }}>
+              <div style={{
+                fontSize: 12, color: "#1E4FD8", fontWeight: 700,
+                letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 14,
+              }}>
+                Combined Expertise
               </div>
-            ))}
+              <h3 style={{
+                fontSize: "clamp(24px, 2.5vw, 36px)", fontWeight: 900,
+                color: "#0A1B5C", letterSpacing: "-0.03em", lineHeight: 1.15, marginBottom: 16,
+              }}>
+                Full-Stack Innovation from{" "}
+                <span style={{
+                  background: "linear-gradient(135deg, #0A1B5C, #1E4FD8)",
+                  WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
+                }}>AI to Deployment</span>
+              </h3>
+              <p style={{
+                color: "#1E293B",
+                fontSize: "clamp(15px, 1.2vw, 17px)",
+                lineHeight: 1.82, fontWeight: 500, margin: 0,
+              }}>
+                Together, Fehed and Omar cover the entire technology spectrum — from AI models and data pipelines to scalable frontends and production infrastructure.
+              </p>
+            </div>
+
+            {/* Stats */}
+            <div className="fn-stats" style={{ display: "flex", gap: 16, flex: "1 1 320px", justifyContent: "flex-end" }}>
+              {[
+                { value: "IIT",    label: "Bombay Projects" },
+                { value: "AI",     label: "& Full Stack" },
+                { value: "Data",   label: "Analytics Expert" },
+                { value: "SaaS",   label: "Products Built" },
+              ].map(({ value, label }) => (
+                <div key={label} className="fn-strip-stat">
+                  <div style={{
+                    fontSize: "clamp(20px, 1.8vw, 26px)", fontWeight: 900,
+                    color: "#0A1B5C", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 8,
+                  }}>{value}</div>
+                  <div style={{
+                    fontSize: "clamp(11px, 0.9vw, 13px)", color: "#1E4FD8",
+                    fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase",
+                  }}>{label}</div>
+                </div>
+              ))}
+            </div>
+
           </div>
         </div>
+
       </div>
     </section>
   );
