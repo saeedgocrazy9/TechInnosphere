@@ -8,6 +8,7 @@ import IITProjects from "./components/IITProjects";
 import Founders from "./components/Founders";
 import Roadmap from "./components/Roadmap";
 import Contact from "./components/Contact";
+import SocialFloat from "./components/SocialFloat";
 
 function App() {
   const [entered, setEntered] = useState(false);
@@ -22,6 +23,7 @@ function App() {
       <Founders />
       <Roadmap />
       <Contact />
+      <SocialFloat />
     </div>
   );
 }
