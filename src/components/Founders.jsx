@@ -1,6 +1,4 @@
-import { Brain, BarChart3, Shield, Star, Code2, Globe, Server, Award, Linkedin, Mail, TrendingUp } from "lucide-react";
-
-export default function Founders() {
+import { Brain, BarChart3, Shield, Code2, Globe, Server, Award, Linkedin, Mail, TrendingUp } from "lucide-react";export default function Founders() {
 
   const founders = [
     {
@@ -272,18 +270,7 @@ export default function Founders() {
                 <img src={f.image} alt={f.name} />
                 <div className="fn-image-overlay" />
                 <div className="fn-image-badge">
-                  <div style={{
-                    display: "inline-flex", alignItems: "center", gap: 6,
-                    background: "rgba(255,255,255,0.15)",
-                    backdropFilter: "blur(8px)",
-                    border: "1px solid rgba(255,255,255,0.25)",
-                    borderRadius: 6, padding: "5px 14px",
-                    fontSize: 10, fontWeight: 700, color: "#fff",
-                    letterSpacing: "0.12em", textTransform: "uppercase",
-                    marginBottom: 10,
-                  }}>
-                    <Star size={9} color="#fff" /> IIT Bombay
-                  </div>
+              
                   <div style={{
                     fontSize: "clamp(20px, 2vw, 26px)", fontWeight: 900,
                     color: "#fff", letterSpacing: "-0.03em", lineHeight: 1.1, marginBottom: 4,
